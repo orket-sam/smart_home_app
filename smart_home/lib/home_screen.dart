@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home/providers/homescreen_provider.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +12,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: kGrey.withOpacity(0.6),
-          backgroundColor: const Color(0xff221d1c),
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: ''),
-          ]),
-      body: Stack(
+    return SizedBox.expand(
+      child: Stack(
         children: [
           Column(
             children: [
@@ -36,8 +30,7 @@ class HomeScreen extends StatelessWidget {
               Expanded(
                 child: Container(
                   decoration: const BoxDecoration(
-                    color: Color(
-                        0xff221d1c), // Equivalent to rgba(33, 29, 29, 0.00)
+                    color: Color(0xff221d1c),
                   ),
                 ),
               )
@@ -47,7 +40,26 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height / 2 - 40),
+                const SizedBox(
+                  height: 50,
+                ),
+                Row(children: [
+                  const Spacer(),
+                  Text(
+                    'Bedroom',
+                    style: GoogleFonts.manrope(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: kGrey),
+                  ),
+                  const Spacer(),
+                  const Icon(
+                    Icons.notifications_outlined,
+                    color: Colors.white,
+                    size: 24,
+                  )
+                ]),
+                SizedBox(height: MediaQuery.of(context).size.height / 2 - 130),
                 Consumer<HomeScreenProvider>(builder: (
                   context,
                   value,
