@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int selectedPage = context.watch<NavigationProvider>().selectedScreen;
+    int selectedPageIndex = context.watch<NavigationProvider>().selectedScreen;
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -37,8 +37,10 @@ class MyApp extends StatelessWidget {
           const HomeScreen(),
           const SearchDevicesScreen(),
           const GridScreen(),
-        ][selectedPage],
+        ][selectedPageIndex],
         bottomNavigationBar: BottomNavigationBar(
+          enableFeedback: false,
+          currentIndex: selectedPageIndex,
           onTap: (index) {
             context.read<NavigationProvider>().switchScreen(index);
           },
