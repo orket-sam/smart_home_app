@@ -37,7 +37,7 @@ class SearchDevicesScreen extends StatelessWidget {
                     color: Colors.white.withOpacity(0.6),
                   ),
                 ),
-                SizedBox(height:10),
+                const SizedBox(height:10),
                 Expanded(
                   child: GridView.builder(
                       itemCount: devices.length,
